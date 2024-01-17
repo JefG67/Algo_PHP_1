@@ -6,12 +6,10 @@
 
 <?php
 
-
-  $str = 'Engage le jeu que je le gagne';
-  echo strtolower($str);
-  $replaced = str_replace(' ', '', $str);
-  echo $replaced;
-  echo strrev("Engage le jeu que je le gagne");
+$phrase1 = "Engage le jeu que je le gagne";
+$phrase2 = str_replace(' ','', $phrase1);
+$phrase2 = strtolower($phrase2);
+$reverse = strrev($phrase2);
 
 if($phrase2 == $reverse)
 {
@@ -21,3 +19,5 @@ else
 {
     echo"La phrase « $phrase1 » n'est pas palindrome";
 }
+ 
+
