@@ -6,6 +6,8 @@
 
 <?php
 
-$dateNaissance = "17/01/1985";
-$dateaujourdhui = date("Y-m-d");
-$diff = date_diff(date_)
+$dateNaissance = new DateTime("17-01-1985");
+$dateaujourdhui = new DateTime("21-05-2018");
+$interval = $dateNaissance->diff($dateaujourdhui);
+
+echo "Age de la personne ". $interval->format('%y ans, %m mois, %d jours');
