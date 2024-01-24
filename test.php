@@ -1,24 +1,40 @@
 <?php
-Class Ordinateur{
-private $marque;
-private $cpuClock;
-private static $nbPostes = 0;//attribut statique
-public function __construct($data){
-$this->marque = $data[0];
-$this->cpuClock = $data[1];
-self::$nbPostes++;//le compteur est incrémenté
+
+class Personne {
+    private $nom;
+    private $prenom;
+    private $dateNaissance;
+
+    public function __construct($nom, $prenom, $dateNaissance) {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->dateNaissance = $dateNaissance;
+    }
+
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getPrenom() {
+        return $this->prenom;
+    }
+
+    public function getDateNaissance() {
+        return $this->dateNaissance;
+    }
+
+    public function calculerAge() {
+        $dateNaissance = new DateTime($this->dateNaissance);
+        $aujourdHui = new DateTime();
+        $difference = $aujourdHui->diff($dateNaissance);
+        return $difference->y; // Années
+    }
 }
-public function setMarque($marque){
- $this->marque = $marque;
-}
-public function setCpuClock($speed){
-$this->cpuClock = $speed;
-}
-public static function combien(){//méthode statique
-echo self::$nbPostes."<br/>";
-}
-}
-Ordinateur::combien();//affiche 0
-$poste = new Ordinateur(array("Samsung", 2.4));
-$poste2 = new Ordinateur(array("Hitachi", 1.6));
-Ordinateur::combien();//affiche 2
+
+$p1 = new Personne("DUPONT", "Michel", "1980-02-19");
+$p2 = new Personne("DUCHEMIN", "Alice", "1985-01-17");
+
+echo $p1->getPrenom() . " " . $p1->getNom() . " a " . $p1->calculerAge() . " ans\n</br>";
+echo $p2->getPrenom() . " " . $p2->getNom() . " a " . $p2->calculerAge() . " ans\n";
+
+?>

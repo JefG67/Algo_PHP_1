@@ -22,15 +22,31 @@ public function __construct(string $nom, string $prenom, string $datenaissance){
     $this->datenaissance = $datenaissance;
 }
 
+public function getnom() {
+    return $this->nom;
+}
+public function getprenom() {
+    return $this->prenom;
+}
 
+public function getdatenaissance() {
+    return $this->datenaissance;
+}
+
+public function calculage () {
+        $datenaissance = new DateTime($this->datenaissance);
+        $dateaujourdhui = new DateTime();
+        $agedif = $dateNaissance->diff($dateaujourdhui);
+        return $agedif->y;
+    }
+public function __toString() {
+        return $this-> getnom().''.$this-> getprenom().''.$this-> calculage() . " ans";
+    }
 
 }
 
-
-
-
-
-
-
 $p1 = new Personne("DUPONT", "Michel", "1980-02-19") ;
 $p2 = new Personne("DUCHEMIN", "Alice", "1985-01-17") ;
+
+echo $p1;
+echo $p2;
