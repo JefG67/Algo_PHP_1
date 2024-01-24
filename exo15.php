@@ -36,11 +36,11 @@ public function getdatenaissance() {
 public function calculage () {
         $datenaissance = new DateTime($this->datenaissance);
         $dateaujourdhui = new DateTime();
-        $agedif = $dateNaissance->diff($dateaujourdhui);
+        $agedif = $datenaissance->diff($dateaujourdhui);
         return $agedif->y;
     }
 public function __toString() {
-        return $this-> getnom().''.$this-> getprenom().''.$this-> calculage() . " ans";
+        return $this-> getnom()." ".$this-> getprenom()." ".$this-> calculage() . " ans</Br>";
     }
 
 }
